@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아소비 · 딱풀리는수학 · 책통클럽 부평래미안학원</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #1a6fd4;
+      --navy: #0d2f6e;
+      --yellow: #f5c842;
+      --light: #f8faff;
+      --gray: #666;
+    }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+      color: #222;
+      background: #fff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d2f6e;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+
+    .hero-brands {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-brands span {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.5);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.5rem 1.3rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 5rem 1.5rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    /* ── PROGRAMS ── */
+    .programs { background: var(--light); }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .program-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .program-body {
+      padding: 1.5rem;
+    }
+
+    .program-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      margin-bottom: 0.7rem;
+    }
+
+    .tag-asobi { background: #e8f4ff; color: #1a6fd4; }
+    .tag-math  { background: #fff8e0; color: #b8860b; }
+    .tag-book  { background: #e8f0ff; color: #3d5aad; }
+
+    .program-body h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .program-body p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 0.75rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.25s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:first-child {
+      grid-column: span 2;
+      height: 340px;
+    }
+
+    .gallery-grid img:hover { transform: scale(1.02); }
+
+    /* ── AWARDS ── */
+    .awards { background: var(--navy); color: #fff; }
+
+    .awards .section-title { color: #fff; }
+    .awards .section-label { color: var(--yellow); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .award-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 320px;
+    }
+
+    .award-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.75);
+      transition: transform 0.3s;
+    }
+
+    .award-card:hover img { transform: scale(1.05); }
+
+    .award-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 1.5rem 1rem 1rem;
+      text-align: center;
+    }
+
+    .award-label p {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .award-label span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 16px;
+      border: 2px solid #eef2ff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(26,111,212,0.12);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ── QUOTE BANNER ── */
+    .quote-banner {
+      background: linear-gradient(135deg, #1a6fd4 0%, #0d2f6e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .quote-banner blockquote {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .quote-banner cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      font-style: normal;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center;
+      background: var(--light);
+      padding: 5rem 1.5rem;
+    }
+
+    .cta-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .cta-info {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 2;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #lightbox.active { display: flex; }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid img:first-child { grid-column: span 2; height: 220px; }
+      .gallery-grid img { height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="학원 입구 1.jpg" alt="학원 입구">
+    <img src="학원 입구2.jpg" alt="학원 내부">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">인천 부평구 래미안학원</div>
+    <h1 class="hero-title">배움이 즐거운<br>우리 학원</h1>
+    <p class="hero-sub">아이의 가능성을 열어주는 세 가지 프로그램</p>
+    <div class="hero-brands">
+      <span>🎮 아소비</span>
+      <span>✏️ 딱풀리는수학</span>
+      <span>📚 책통클럽</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="container">
+    <div class="section-label">Programs</div>
+    <h2 class="section-title">세 가지 특별한 프로그램</h2>
+    <p class="section-desc">아이의 연령과 특성에 맞게 설계된 전문 커리큘럼으로<br>균형 잡힌 성장을 도와드립니다.</p>
+
+    <div class="programs-grid">
+
+      <div class="program-card">
+        <img src="KakaoTalk_20260617_103149171.jpg" alt="아소비 수업">
+        <div class="program-body">
+          <span class="program-tag tag-asobi">아소비</span>
+          <h3>아소비<br>유아·놀이 학습</h3>
+          <p>놀이처럼 즐기는 영·유아 학습 프로그램. 다양한 교구와 활동으로 창의력과 기초 학습 능력을 자연스럽게 키워줍니다.</p>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="KakaoTalk_20260617_103107314_02.jpg" alt="딱풀리는수학 수업">
+        <div class="program-body">
+          <span class="program-tag tag-math">딱풀리는수학</span>
+          <h3>비상 딱풀리는수학<br>수학 전문 학원</h3>
+          <p>비상교육이 만든 체계적인 수학 커리큘럼. 개념 이해부터 실전 문제 해결까지, 수학에 자신감을 불어넣어 드립니다.</p>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="KakaoTalk_20260617_103107314_04.jpg" alt="책통클럽 독서 수업">
+        <div class="program-body">
+          <span class="program-tag tag-book">책통클럽</span>
+          <h3>책통클럽<br>독서 토론 클럽</h3>
+          <p>책통의 시간은 나를 더욱 빛나게 합니다. 풍부한 도서 환경 속에서 독서 습관과 사고력을 함께 기릅니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="container">
+    <div class="section-label">Gallery</div>
+    <h2 class="section-title">학원 생활 엿보기</h2>
+    <p class="section-desc">아이들이 집중하고, 탐구하고, 성장하는 공간을 소개합니다.</p>
+
+    <div class="gallery-grid">
+      <img src="학원 입구2.jpg" alt="학원 내부 전경" onclick="openLightbox(this.src)">
+      <img src="KakaoTalk_20260617_103107314_01.jpg" alt="수학 수업" onclick="openLightbox(this.src)">
+      <img src="KakaoTalk_20260617_103107314_05.jpg" alt="책통클럽 독서 시간" onclick="openLightbox(this.src)">
+      <img src="KakaoTalk_20260617_103514371.jpg" alt="수학 문제 풀기" onclick="openLightbox(this.src)">
+      <img src="KakaoTalk_20260617_103149171_01.jpg" alt="아소비 수업" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <blockquote>
+    "책통의 시간은<br>나를 더욱 빛나게 합니다."
+  </blockquote>
+  <cite>— 책통클럽</cite>
+</div>
+
+<!-- AWARDS -->
+<section class="awards">
+  <div class="container">
+    <div class="section-label">Awards</div>
+    <h2 class="section-title">우리 학원의 자랑스러운 수상자들</h2>
+    <p style="color:rgba(255,255,255,0.7); font-size:1rem; margin-top:0.5rem;">TESOM(전국 수학경시대회) 수상을 축하합니다!</p>
+
+    <div class="awards-grid">
+      <div class="award-card">
+        <img src="KakaoTalk_20260617_103139773.jpg" alt="TESOM 수상">
+        <div class="award-label">
+          <p>TESOM 수상</p>
+          <span>전국 수학 경시대회</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <img src="KakaoTalk_20260617_103139773_01.jpg" alt="TESOM 수상">
+        <div class="award-label">
+          <p>TESOM 수상</p>
+          <span>전국 수학 경시대회</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <img src="KakaoTalk_20260617_103139773_02.jpg" alt="TESOM 수상">
+        <div class="award-label">
+          <p>TESOM 수상</p>
+          <span>전국 수학 경시대회</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <img src="KakaoTalk_20260617_103139773_03.jpg" alt="TESOM 수상">
+        <div class="award-label">
+          <p>TESOM 수상</p>
+          <span>전국 수학 경시대회</span>
+        </div>
+      </div>
+      <div class="award-card">
+        <img src="KakaoTalk_20260617_103139773_04.jpg" alt="TESOM 수상">
+        <div class="award-label">
+          <p>TESOM 수상</p>
+          <span>전국 수학 경시대회</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="container">
+    <div class="section-label">Why Us</div>
+    <h2 class="section-title">왜 부평래미안학원인가요?</h2>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🏫</div>
+        <h4>쾌적한 학습 환경</h4>
+        <p>밝고 깨끗한 전용 강의실과 독서 공간으로 아이들이 편안하게 집중할 수 있습니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📊</div>
+        <h4>수준별 맞춤 수업</h4>
+        <p>준5급부터 8급까지 단계별로 나뉜 수준별 수업으로 아이의 속도에 맞게 실력을 쌓습니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <h4>검증된 성과</h4>
+        <p>TESOM 전국 수학경시대회에서 다수의 수상자를 배출한 실력 있는 학원입니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📖</div>
+        <h4>독서와 수학의 균형</h4>
+        <p>책통클럽의 독서 습관 + 딱풀리는수학의 수리력으로 균형 잡힌 학습 능력을 기릅니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🧸</div>
+        <h4>유아부터 초등까지</h4>
+        <p>아소비 유아 프로그램부터 초등 수학·독서까지 원스톱으로 교육받을 수 있습니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔍</div>
+        <h4>소규모 밀착 관리</h4>
+        <p>소수 정예 수업으로 선생님이 아이 한 명 한 명에게 집중할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="cta-title">지금 상담 신청하세요</h2>
+  <p class="cta-sub">우리 아이에게 꼭 맞는 프로그램을 함께 찾아드립니다.</p>
+  <a href="tel:010-0000-0000" class="cta-btn">📞 전화 상담하기</a>
+  <div class="cta-info">
+    📍 인천광역시 부평구 래미안 인근<br>
+    🕐 평일 · 주말 운영 (상담 후 안내)<br>
+    ✉️ 카카오톡으로도 문의 가능합니다
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:#fff;">아소비 · 딱풀리는수학 · 책통클럽 부평래미안학원</strong></p>
+  <p>인천광역시 부평구 | 비상교육 공식 파트너 학원</p>
+  <p style="margin-top:0.5rem;">© 2026 부평래미안학원. All rights reserved.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <span id="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
