@@ -110,6 +110,22 @@
     .tag-book  { background:#e8f0ff; color:#3d5aad; }
     .program-body h3 { font-size:1.3rem; font-weight:800; color:var(--navy); margin-bottom:0.5rem; }
     .program-body p  { font-size:0.93rem; color:var(--gray); line-height:1.8; margin-bottom:1rem; }
+    .program-headline {
+      font-size:1.05rem; font-weight:800; color:var(--navy);
+      line-height:1.6; margin-bottom:0.9rem;
+    }
+    .program-quote {
+      font-size:1rem; font-weight:700; color:var(--blue);
+      background:#f0f6ff; border-left:3px solid var(--blue);
+      padding:0.5rem 0.9rem; border-radius:0 8px 8px 0;
+      margin-bottom:0.8rem; line-height:1.5;
+    }
+    .program-text {
+      font-size:0.9rem; color:#555; line-height:1.9;
+      margin-bottom:0.8rem;
+    }
+    .program-text:last-of-type { margin-bottom:1.1rem; }
+
     .program-detail-btn {
       display:inline-block; font-size:0.85rem; font-weight:700;
       color:var(--blue); border:1.5px solid var(--blue);
@@ -448,8 +464,11 @@
         <div class="program-body">
           <span class="program-tag tag-asobi">유아 ~ 초등</span>
           <h3>아소비</h3>
-          <p style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">배움이 즐거웠던 그 순간, 아이는 이미 자라고 있었습니다.</p>
-          <p>"선생님, 더 공부하고 싶어요!" 그 말 한마디가 아소비 교육과정이 만들고 싶은 순간입니다.<br><br>아이가 공부를 싫어하는 건, 아직 배움이 즐거울 수 있다는 걸 경험하지 못했던 것뿐입니다.<br><br>아이가 "재미있다!"라고 느끼는 그 순간, 작은 자신감 하나가 싹틉니다. 그 자신감이 쌓여 스스로 해내는 아이로 자랄 수 있도록, 아소비가 함께하겠습니다.</p>
+          <p class="program-headline">배움이 즐거웠던 그 순간,<br>아이는 이미 자라고 있었습니다.</p>
+          <p class="program-quote">"선생님, 더 공부하고 싶어요!"</p>
+          <p class="program-text">그 말 한마디가 아소비 교육과정이 만들고 싶은 순간입니다.</p>
+          <p class="program-text">아이가 공부를 싫어하는 건,<br>아직 배움이 즐거울 수 있다는 걸<br>경험하지 못했던 것뿐입니다.</p>
+          <p class="program-text">아이가 <strong>"재미있다!"</strong>라고 느끼는 그 순간,<br>작은 자신감 하나가 싹틉니다.<br>그 자신감이 쌓여 스스로 해내는 아이로 자랄 수 있도록,<br>아소비가 함께하겠습니다.</p>
           <span class="program-detail-btn" onclick="openModal('아소비 프로그램.png')">프로그램 자세히 보기 →</span>
         </div>
       </div>
@@ -459,8 +478,11 @@
         <div class="program-body">
           <span class="program-tag tag-math">초등</span>
           <h3>비상 딱풀리는수학</h3>
-          <p style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">수학이 딱 풀리는 순간, 아이의 눈빛이 달라집니다.</p>
-          <p>"아, 이거구나!" 스스로 답을 찾아낸 그 순간의 기쁨.<br><br>딱풀리는수학은 바로 그 순간을 만들어가는 수업입니다. 수학이 어렵게 느껴지는 건 아이가 부족해서가 아닙니다. 아직 스스로 이해할 시간이 충분하지 않았던 것뿐입니다.<br><br>왜 그렇게 되는지 이해하고, 스스로 생각해서 풀어내는 힘을 키웁니다. 그 힘이 쌓일 때, 수학이 진짜 실력이 됩니다.<br>딱풀리는수학이 그 길에 함께하겠습니다.</p>
+          <p class="program-headline">수학이 딱 풀리는 순간,<br>아이의 눈빛이 달라집니다.</p>
+          <p class="program-quote">"아, 이거구나!"</p>
+          <p class="program-text">스스로 답을 찾아낸 그 순간의 기쁨.<br>딱풀리는수학은 바로 그 순간을 만들어가는 수업입니다.</p>
+          <p class="program-text">수학이 어렵게 느껴지는 건 아이가 부족해서가 아닙니다.<br>아직 스스로 이해할 시간이 충분하지 않았던 것뿐입니다.</p>
+          <p class="program-text">왜 그렇게 되는지 이해하고,<br>스스로 생각해서 풀어내는 힘을 키웁니다.<br>그 힘이 쌓일 때, 수학이 진짜 실력이 됩니다.<br>딱풀리는수학이 그 길에 함께하겠습니다.</p>
           <span class="program-detail-btn" onclick="openModal('딱풀리는수학 프로그램.png')">프로그램 자세히 보기 →</span>
         </div>
       </div>
@@ -470,8 +492,11 @@
         <div class="program-body">
           <span class="program-tag tag-book">초등 ~ 고등</span>
           <h3>책통클럽</h3>
-          <p style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">책이 재미있어지는 순간, 아이의 세계가 넓어집니다.</p>
-          <p>"어, 이게 이런 뜻이었구나. 더 읽고 싶다!" 그 설레는 발견의 순간. 책통클럽은 바로 그 순간을 만들어가는 수업입니다.<br><br>책이 재미없게 느껴지는 건 아이가 부족해서가 아닙니다. 아직 책 속에서 스스로 의미를 찾는 방법을 배울 기회가 없었던 것뿐입니다.<br><br>빠르고 정확하게 읽으며, 내용 속에서 스스로 깨달음을 얻는 힘을 키웁니다. 그 힘이 쌓일 때, 독서가 모든 공부의 진짜 기초가 됩니다.<br>책통클럽이 그 길에 함께하겠습니다.</p>
+          <p class="program-headline">책이 재미있어지는 순간,<br>아이의 세계가 넓어집니다.</p>
+          <p class="program-quote">"어, 이게 이런 뜻이었구나. 더 읽고 싶다!"</p>
+          <p class="program-text">그 설레는 발견의 순간.<br>책통클럽은 바로 그 순간을 만들어가는 수업입니다.</p>
+          <p class="program-text">책이 재미없게 느껴지는 건 아이가 부족해서가 아닙니다.<br>아직 책 속에서 스스로 의미를 찾는 방법을<br>배울 기회가 없었던 것뿐입니다.</p>
+          <p class="program-text">빠르고 정확하게 읽으며,<br>내용 속에서 스스로 깨달음을 얻는 힘을 키웁니다.<br>그 힘이 쌓일 때, 독서가 모든 공부의 진짜 기초가 됩니다.<br>책통클럽이 그 길에 함께하겠습니다.</p>
           <span class="program-detail-btn" onclick="openModal('책통클럽 프로그램.png')">프로그램 자세히 보기 →</span>
         </div>
       </div>
